@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const uniqid = require('uniqid');
 
 
 const app = express();
@@ -22,7 +23,7 @@ app.post('/api/notes', (req, res) => {
     const saveNote = req.body;
     noteArr.push(saveNote);
     noteArr.forEach((note) => {
-        note.id = 1;
+        note.id = uniqid();
     })
     res.json(saveNote);
     fs.writeFile('db/db.json', JSON.stringify(noteArr, null, 2), (err) => 
