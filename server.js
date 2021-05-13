@@ -15,10 +15,6 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
-app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.html')));
-
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
-
 app.post('/api/notes', (req, res) => {
     const saveNote = req.body;
     noteArr.push(saveNote);
@@ -30,7 +26,7 @@ app.post('/api/notes', (req, res) => {
     err ? console.log(err) : console.log('Data stored'))
 });
 
-app.get('api/notes', (req, res) => {
+app.get('/api/notes', (req, res) => {
     fs.readFile('db/db.json', (err, data) => {
         if (err) throw err;
         res.send(data);
@@ -38,3 +34,7 @@ app.get('api/notes', (req, res) => {
 })
 
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
+
+app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.html')));
+
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
