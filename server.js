@@ -30,8 +30,11 @@ app.post('/api/notes', (req, res) => {
     err ? console.log(err) : console.log('Data stored'))
 });
 
-// app.get('api/notes', (req, res) => {
-    
-// })
+app.get('api/notes', (req, res) => {
+    fs.readFile('db/db.json', (err, data) => {
+        if (err) throw err;
+        res.send(data);
+    })
+})
 
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));

@@ -33,6 +33,7 @@ const getNotes = () =>
     },
   });
 
+
 const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
@@ -70,7 +71,7 @@ const handleNoteSave = () => {
     text: noteText.value,
   };
   saveNote(newNote).then(() => {
-    // getAndRenderNotes();
+    getAndRenderNotes();
     renderActiveNote();
   });
 };
@@ -168,8 +169,7 @@ const renderNoteList = async (notes) => {
 };
 
 // Gets notes from the db and renders them to the sidebar
-// const getAndRenderNotes = () => getNotes().then(renderNoteList);
-
+const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 saveNoteBtn.addEventListener('click', handleNoteSave);
 newNoteBtn.addEventListener('click', handleNewNoteView);
@@ -177,4 +177,4 @@ noteTitle.addEventListener('keyup', handleRenderSaveBtn);
 noteText.addEventListener('keyup', handleRenderSaveBtn);
 
 
-// getAndRenderNotes();
+getAndRenderNotes(); 
