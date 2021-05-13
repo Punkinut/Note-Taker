@@ -36,11 +36,17 @@ app.get('/api/notes', (req, res) => {
     })
 })
 
-// app.delete('/api/notes/:id', (req, res) => {
-//     const gath = req.params.id;
-//     console.log(gath)
-//     res.end();
-// })
+app.delete('/api/notes/:id', (req, res) => {
+    const { id } = req.params;
+    res.send(id);
+    // const deleted = noteArr.find(note => note.id === id);
+    // if (deleted) {
+    //     // noteArr = noteArr.filter(note => note.id !== id);
+    //     res.send(deleted)
+    // } else {
+    //     res.status(404).json({ message: 'The thing you were looking for does not exist'})
+    // }
+})
 
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.html')));
 
