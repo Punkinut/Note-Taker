@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const uniqid = require('uniqid');
+const jsonArr = require('./db/db');
 
 
 
@@ -10,7 +11,6 @@ const PORT = process.env.PORT || 3000;
 
 
 let noteArr = [];
-const jsonArr = require('./db/db');
 if(jsonArr) {
     jsonArr.forEach( nNote => {
         noteArr.push(nNote);
@@ -40,10 +40,12 @@ app.post('/api/notes', (req, res) => {
 });
 
 app.get('/api/notes', (req, res) => {
-    fs.readFile('db/db.json', (err, data) => {
-        if (err) throw err;
-        res.send(data);
-    })
+    if(jsonArr) {
+        fs.readFile('db/db.json', (err, data) => {
+            if (err) throw err;
+            res.send(data);
+        })
+    }
 })
 
 app.delete('/api/notes/:id', (req, res) => {
