@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 let noteArr = [];
 
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -20,9 +21,12 @@ app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html'
 app.post('/api/notes', (req, res) => {
     const saveNote = req.body;
     noteArr.push(saveNote);
+    noteArr.forEach((note) => {
+        note.id = 1;
+    })
     res.json(saveNote);
     fs.writeFile('db/db.json', JSON.stringify(noteArr, null, 2), (err) => 
-    err ? console.log(err) : console.log('Success'))
+    err ? console.log(err) : console.log('Data stored'))
 });
 
 // app.get('api/notes', (req, res) => {
