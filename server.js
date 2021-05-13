@@ -22,8 +22,11 @@ app.post('/api/notes', (req, res) => {
         note.id = uniqid();
     })
     res.json(saveNote);
-    fs.writeFile('db/db.json', JSON.stringify(noteArr, null, 2), (err) => 
-    err ? console.log(err) : console.log('Data stored'))
+    fs.writeFile('db/db.json', JSON.stringify(noteArr, null, 2), (err) => {
+        if(err) {
+            console.log(err)
+        }
+    })
 });
 
 app.get('/api/notes', (req, res) => {
@@ -32,6 +35,8 @@ app.get('/api/notes', (req, res) => {
         res.send(data);
     })
 })
+
+
 
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.html')));
 
