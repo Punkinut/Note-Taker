@@ -4,10 +4,19 @@ const fs = require('fs');
 const uniqid = require('uniqid');
 
 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
 let noteArr = [];
+const jsonArr = require('./db/db');
+if(jsonArr) {
+    jsonArr.forEach( nNote => {
+        noteArr.push(nNote);
+    })
+}
+
 
 
 app.use(express.urlencoded({ extended: true }));
@@ -18,6 +27,7 @@ app.use(express.static('public'));
 app.post('/api/notes', (req, res) => {
     const saveNote = req.body;
     noteArr.push(saveNote);
+    // Gives a unique ID to each note so that you can call on them later
     noteArr.forEach((note) => {
         note.id = uniqid();
     })
@@ -38,7 +48,6 @@ app.get('/api/notes', (req, res) => {
 
 app.delete('/api/notes/:id', (req, res) => {
     const { id } = req.params;
-
     noteArr.forEach(note => {
         if (note.id === id) {
             console.log('They are the same')
