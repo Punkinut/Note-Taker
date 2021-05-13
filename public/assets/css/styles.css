@@ -6,6 +6,25 @@ html, body {
 
 .save-note {
   display: none;
+  color: white;
+  opacity: 100%;
+  transition: all 100ms ease-in-out;
+}
+
+.save-note:hover {
+  opacity: 80%;
+  color: white;
+}
+
+.new-note {
+  color: white;
+  opacity: 100%;
+  transition: all 100ms ease-in-out;
+}
+
+.new-note:hover {
+  opacity: 80%;
+  color: white;
 }
 
 .icons i {
