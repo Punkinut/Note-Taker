@@ -36,7 +36,11 @@ app.get('/api/notes', (req, res) => {
     })
 })
 
-
+// app.delete('/api/notes/:id', (req, res) => {
+//     const gath = req.params.id;
+//     console.log(gath)
+//     res.end();
+// })
 
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.html')));
 
