@@ -52,23 +52,13 @@ app.delete('/api/notes/:id', (req, res) => {
     const { id } = req.params;
     noteArr.forEach(note => {
         if (note.id === id) {
-            console.log('They are the same')
+            let changeArr = noteArr.filter(notes => {
+                return notes.id !== id;
+            })
+            console.log(changeArr)
             res.send(id);
-        } else {
-            res.status(404).json({ message: 'The thing you were looking for does not exist'})
         }
     })
-
-    // res.send(id);
-
-
-    // const deleted = noteArr.find(note => note.id === id);
-    // if (deleted) {
-    //     noteArr = noteArr.filter(note => note.id !== id);
-    //     res.send(deleted)
-    // } else {
-    //     res.status(404).json({ message: 'The thing you were looking for does not exist'})
-    // }
 })
 
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'public/notes.html')));
