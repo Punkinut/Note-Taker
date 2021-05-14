@@ -1,3 +1,76 @@
+:root {
+  --dark-gray: #353A3F;
+  --candy-red: #f04c65;
+  --light-red: #de3a5344;
+  --light-white: #F6F7F8;
+  --tan: #F9F5F2;
+  --white: white;
+}
+
+/* Default font class */
+#font {
+  font-family: poppins, sans-serif;
+  font-style: normal;
+  color: var(--dark-gray);
+}
+
+.bg-color {
+  background-color: var(--dark-gray) !important;
+}
+
+/* Font weight classes */
+#f200 {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+#f400 {
+  font-weight: 400;
+}
+
+#f600 {
+  font-weight: 600;
+}
+
+#f700 {
+  font-weight: 700;
+}
+
+#f800 {
+  font-weight: 800;
+  letter-spacing: 1px
+}
+
+#f900 {
+  font-weight: 900;
+  letter-spacing: 0.2rem;
+  word-spacing: 0.8rem;
+  font-size: 70px;
+}
+
+#cont {
+  border-radius: 15px;
+  background-color: rgba(220, 220, 220, 0.226);
+  padding: 40px;
+  cursor: default;
+}
+
+#button-d {
+  opacity: 100%;
+  font-weight: 200;
+  font-size: 16px;
+  border: none;
+  background-color: var(--dark-gray);
+  transition: all 100ms ease-in-out;
+}
+
+#button-d:hover {
+  color: var(--dark-gray);
+  font-weight: 400;
+  background-color: white;
+  box-shadow: 5px 5px var(--dark-gray);
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -8,23 +81,33 @@ html, body {
   display: none;
   color: white;
   opacity: 100%;
+  padding: 10px;
+  border-radius: 50%;
   transition: all 100ms ease-in-out;
 }
 
 .save-note:hover {
-  opacity: 80%;
-  color: white;
+  background-color: white !important;
+  color: var(--dark-gray)
 }
 
-.new-note {
+.new-note,
+.home {
   color: white;
   opacity: 100%;
+  padding: 10px;
+  border-radius: 50px;
   transition: all 100ms ease-in-out;
 }
 
 .new-note:hover {
-  opacity: 80%;
-  color: white;
+  background-color: white !important;
+  color: var(--dark-gray)
+}
+
+.home:hover {
+  background-color: white !important;
+  color: var(--dark-gray)
 }
 
 .icons i {
@@ -86,4 +169,13 @@ html, body {
   border-right: none;
   padding: 20px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 340px) {
+  #f900 {
+    font-weight: 900;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.8rem;
+    font-size: 50px;
+  }
 }
