@@ -55,7 +55,13 @@ app.delete('/api/notes/:id', (req, res) => {
             let changeArr = noteArr.filter(notes => {
                 return notes.id !== id;
             })
-            console.log(changeArr)
+            noteArr = changeArr;
+            fs.writeFile('db/db.json', JSON.stringify(noteArr, null, 2), (err) => {
+                if(err) {
+                    console.log(err)
+                }
+            })
+            // console.log(changeArr)
             res.send(id);
         }
     })
