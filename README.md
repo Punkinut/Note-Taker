@@ -27,7 +27,7 @@ The is the first page you will land on. The design is very simple as I was more 
 ## Adding Notes
 
 You are able to create as many notes as you like and delete them.
-![Adding Notes](./public/assets/images/note.png)
+![Adding Notes](./public/assets/images/notes.png)
 
 ## End note
 I hope you enjoyed going through my application and hopefully you will be able to save some notes 👍
