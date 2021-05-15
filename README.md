@@ -6,7 +6,7 @@ A mini application that allows you to take and save notes | Deployed in Heroku (
 
 In order to deploy the application you will have to execute it in node by opening it up in the terminal and typing 'node server.js' after installing the packages. 
 
-Application: [Note Taker](https://secure-peak-10243.herokuapp.com/)
+Application: [Note Taker](https://pacific-dusk-03575.herokuapp.com/)
 
 ## Why make this?
 Never lose track of your thoughts! This application allows you to jot down your ideas while keeping them backed up in a database.
