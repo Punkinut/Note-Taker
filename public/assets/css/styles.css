@@ -18,6 +18,17 @@
   background-color: var(--dark-gray) !important;
 }
 
+.fixed {
+  position: fixed !important;
+  z-index: 300;
+  width: 100%;
+}
+
+.bac-cont {
+  position: relative;
+  top: 88px;
+}
+
 /* Font weight classes */
 #f200 {
   font-weight: 200;
@@ -192,8 +203,10 @@ html, body {
   cursor: pointer;
 }
 
-.list-group-item span hover {
-  opacity: 80%;
+.list-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 340px) {
